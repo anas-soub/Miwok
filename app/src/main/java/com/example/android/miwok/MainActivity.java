@@ -19,7 +19,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,13 +28,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
-        attachActivityToView(R.id.numbers, NumbersActivity.class);
-        attachActivityToView(R.id.colors,ColorsActivity.class);
-        attachActivityToView(R.id.family,FamilyActivity.class);
-        attachActivityToView(R.id.phrases,PhrasesActivity.class);
+        attachActivityToViewOnClickListener(R.id.numbers, NumbersActivity.class);
+        attachActivityToViewOnClickListener(R.id.colors, ColorsActivity.class);
+        attachActivityToViewOnClickListener(R.id.family, FamilyActivity.class);
+        attachActivityToViewOnClickListener(R.id.phrases, PhrasesActivity.class);
 
     }
-        public void attachActivityToView(int id,final Class<?> cls){
+
+    /**
+     * Attach an Activity to open to the OnClickListener of a View
+     * @param id The id of the clicked View
+     * @param cls The Activity Class to open when the View is clicked
+     */
+        public void attachActivityToViewOnClickListener(int id, final Class<?> cls){
             // Find the View from the given id
             View category =  findViewById(id);
 
@@ -44,8 +49,9 @@ public class MainActivity extends AppCompatActivity {
                 category.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent numbersIntent = new Intent(MainActivity.this, cls);
-                        startActivity(numbersIntent);
+                        // Create an explicit intent for the given activity
+                        Intent intent = new Intent(MainActivity.this, cls);
+                        startActivity(intent);
                     }
 
 

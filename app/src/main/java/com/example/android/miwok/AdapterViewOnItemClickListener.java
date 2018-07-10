@@ -12,8 +12,9 @@ import java.util.ArrayList;
 
 /**
  * Created by Anas on 30/06/2018.
+ *
  */
-public class MyOnItemClickListener implements AdapterView.OnItemClickListener {
+public class AdapterViewOnItemClickListener implements AdapterView.OnItemClickListener {
     private ArrayList<Word> words;
     private Context context;
     /** Handles playback of all the sound files */
@@ -23,7 +24,7 @@ public class MyOnItemClickListener implements AdapterView.OnItemClickListener {
     private AudioManager mAudioManager;
 
 
-    public MyOnItemClickListener(Context context,ArrayList<Word> words) {
+    public AdapterViewOnItemClickListener(Context context, ArrayList<Word> words) {
         this.words = words;
         this.context=context;
         mAudioManager = (AudioManager)this.context.getSystemService(context.AUDIO_SERVICE);
