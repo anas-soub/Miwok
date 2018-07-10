@@ -80,6 +80,7 @@ public class Word {
         return mImageResourceId;
     }
 
+
     /**
      * Returns whether or not there is an image for this word.
      */
